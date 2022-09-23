@@ -49,7 +49,7 @@ public class StudentEndHandler {
         return studentTasksAttemptsMap;
     }
 
-    private Map<String, Integer> getResults(List<StudentEffort> list) {
+    public Map<String, Integer> getResults(List<StudentEffort> list) {
         Map<String, Integer> resultMap = new HashMap<>();
 
         Map<String, Map<Integer, List<StudentEffort>>> studentTasksAttemptsMap = createStudentTasksAttemptsMap(list);
@@ -65,8 +65,8 @@ public class StudentEndHandler {
 
                 if (maxAttempt < 5) {
                     totalScore += maxScore;
-                } else if (maxAttempt < 10) {
-                    totalScore += maxScore / 2;
+                } else if (maxAttempt <= 10) {
+                    totalScore += maxScore / 3;
                 } else {
                     totalScore += 1;
                 }
